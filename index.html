@@ -3,131 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UstaSinyal | Profesyonel Elektrik Çözümleri</title>
+    <title>VoltUsta | Endüstriyel Enerji & Şarj Çözümleri</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .yellow-gradient { background: linear-gradient(135deg, #facc15 0%, #eab308 100%); }
-        .hero-pattern { background-color: #0f172a; background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png"); }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #000; }
+        .font-brand { font-family: 'Orbitron', sans-serif; }
+        
+        .yellow-gradient { background: linear-gradient(90deg, #FACC15 0%, #EAB308 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-bg {
+            background: radial-gradient(circle at top right, #2d2600, #000);
+            position: relative;
+        }
+        .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .service-card:hover { border-color: #FACC15; transform: translateY(-12px); box-shadow: 0 20px 40px rgba(250, 204, 21, 0.1); }
+        
+        /* Şık kaydırma çubuğu */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #FACC15; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="text-white selection:bg-yellow-500 selection:text-black">
 
-    <nav class="bg-black text-white p-5 sticky top-0 z-50 border-b-2 border-yellow-500">
+    <nav class="fixed w-full z-50 glass border-b border-yellow-500/20 px-6 py-4">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="bg-yellow-500 text-black p-2 rounded-lg">
-                    <i class="fas fa-bolt text-2xl"></i>
+            <div class="flex items-center space-x-3">
+                <div class="bg-yellow-500 text-black w-10 h-10 flex items-center justify-center rounded-lg rotate-45">
+                    <i class="fas fa-bolt text-xl -rotate-45"></i>
                 </div>
-                <span class="text-2xl font-black tracking-tighter italic">USTASİNYAL</span>
+                <span class="font-brand text-2xl font-black tracking-tighter text-yellow-500 uppercase">Volt<span class="text-white">Usta</span></span>
             </div>
-            <a href="tel:+905469710929" class="yellow-gradient text-black px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform shadow-md">
-                HEMEN ARA
+            <div class="hidden md:flex space-x-10 font-bold text-xs uppercase tracking-[0.2em] text-gray-400">
+                <a href="#hizmetler" class="hover:text-yellow-500 transition">Hizmetler</a>
+                <a href="#endustriyel" class="hover:text-yellow-500 transition">Endüstriyel</a>
+                <a href="#iletisim" class="hover:text-yellow-500 transition">İletişim</a>
+            </div>
+            <a href="tel:+905469710929" class="yellow-gradient text-black font-black px-6 py-3 rounded-sm transform hover:scale-105 transition shadow-[0_0_20px_rgba(250,204,21,0.3)]">
+                ACİL DESTEK
             </a>
         </div>
     </nav>
 
-    <header class="hero-pattern text-white py-24 px-4 relative overflow-hidden">
-        <div class="container mx-auto text-center relative z-10">
-            <span class="bg-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">7/24 Teknik Destek</span>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Elektrikte <span class="text-yellow-500">Doğru Sinyal,</span> Güvenli Çözüm.</h2>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">Arıza, bakım veya yeni tesisat... En modern teknik ekipmanlarla sorunlarınıza profesyonel müdahale ediyoruz.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/905469710929" class="bg-white text-black font-bold px-10 py-4 rounded-xl hover:bg-yellow-500 transition-all flex items-center shadow-2xl">
-                    <i class="fab fa-whatsapp mr-2 text-2xl"></i> WhatsApp'tan Yaz
-                </a>
+    <header class="hero-bg min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-yellow-500/10 blur-[120px] rounded-full"></div>
+        <div class="container mx-auto grid md:grid-cols-2 gap-16 items-center relative">
+            <div>
+                <h2 class="text-yellow-500 font-brand text-sm mb-6 tracking-[0.6em] uppercase">Endüstriyel Enerji Mühendisliği</h2>
+                <h1 class="text-6xl md:text-8xl font-black mb-8 leading-[0.9] font-brand">GÜCÜN <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-white to-gray-500">USTASI.</span></h1>
+                <p class="text-gray-400 text-lg mb-12 max-w-lg leading-relaxed">Yüksek gerilim hatlarından akıllı şarj istasyonlarına kadar, enerjinin her formunda profesyonel müdahale ve kesintisiz çözüm sunuyoruz.</p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://wa.me/905469710929" class="bg-white text-black font-black px-10 py-5 rounded-sm hover:bg-yellow-500 transition-all flex items-center group">
+                        <i class="fab fa-whatsapp mr-3 text-2xl"></i> PROJE BAŞLAT
+                    </a>
+                    <div class="flex flex-col justify-center">
+                        <span class="text-xs text-gray-500 uppercase tracking-widest">Hemen Ara</span>
+                        <a href="tel:+905469710929" class="text-xl font-bold hover:text-yellow-500 transition">+90 546 971 09 29</a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-10 bg-yellow-500/5 blur-3xl rounded-full animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1000" alt="Endüstriyel Elektrik" class="relative rounded-2xl grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-1000 shadow-2xl border border-white/5">
+                <div class="absolute bottom-6 left-6 glass p-6 rounded-xl">
+                    <p class="text-yellow-500 font-black text-2xl">7/24</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 text-nowrap">Kesintisiz Teknik Servis</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="bg-yellow-500 py-10">
-        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-black">
-            <div>
-                <p class="text-4xl font-black">15+</p>
-                <p class="text-sm font-bold uppercase tracking-widest">Yıllık Tecrübe</p>
+    <section id="hizmetler" class="py-32 bg-zinc-950 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <h3 class="font-brand text-5xl mb-4 italic uppercase">Hizmet Kapasitemiz</h3>
+                    <p class="text-gray-500 max-w-md">En karmaşık enerji sistemlerinde, modern teknoloji ve tecrübe ile fark yaratıyoruz.</p>
+                </div>
+                <div class="h-px flex-grow bg-white/10 mx-10 hidden md:block"></div>
+                <div class="text-right">
+                    <span class="text-7xl font-brand text-white/5 uppercase">VoltUsta</span>
+                </div>
             </div>
-            <div>
-                <p class="text-4xl font-black">1000+</p>
-                <p class="text-sm font-bold uppercase tracking-widest">Mutlu Müşteri</p>
-            </div>
-            <div>
-                <p class="text-4xl font-black">30 Dakika</p>
-                <p class="text-sm font-bold uppercase tracking-widest">Hızlı Müdahale</p>
-            </div>
-            <div>
-                <p class="text-4xl font-black">%100</p>
-                <p class="text-sm font-bold uppercase tracking-widest">Güven Garantisi</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="container mx-auto py-20 px-4">
-        <div class="text-center mb-16">
-            <h3 class="text-4xl font-black text-black italic">HİZMET ALANLARIMIZ</h3>
-            <div class="w-24 h-2 bg-yellow-500 mx-auto mt-4"></div>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="group relative bg-black rounded-3xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2">
-                <div class="p-8">
-                    <div class="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform">
-                        <i class="fas fa-plug text-3xl text-black"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card glass p-10 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="bg-yellow-500/10 w-16 h-16 flex items-center justify-center rounded-xl mb-8">
+                        <i class="fas fa-bolt-lightning text-yellow-500 text-3xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Arıza & Tamir</h4>
-                    <p class="text-gray-400">Priz değişimi, sigorta kutusu onarımı ve kısa devre tespiti profesyonel cihazlarla yapılır.</p>
+                    <h4 class="text-2xl font-black mb-4 font-brand uppercase">Yüksek Gerilim</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed italic">Hücre kurulumları, işletme sorumluluğu ve periyodik yüksek gerilim kontrolleri.</p>
                 </div>
-                <div class="h-2 w-full bg-yellow-500"></div>
-            </div>
-
-            <div class="group relative bg-black rounded-3xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2 border-2 border-yellow-500">
-                <div class="p-8">
-                    <div class="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform">
-                        <i class="fas fa-house-chimney text-3xl text-black"></i>
+                <div class="service-card glass p-10 rounded-2xl border-t-2 border-white">
+                    <div class="bg-white/10 w-16 h-16 flex items-center justify-center rounded-xl mb-8">
+                        <i class="fas fa-charging-station text-white text-3xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Komple Tesisat</h4>
-                    <p class="text-gray-400">İnşaat ve tadilat aşamasındaki binalar için sıfırdan anahtar teslim elektrik projelendirme.</p>
+                    <h4 class="text-2xl font-black mb-4 font-brand uppercase">Şarj İstasyonları</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed italic">EV şarj üniteleri kurulumu ve enerji altyapı yönetimi.</p>
                 </div>
-                <div class="h-2 w-full bg-yellow-500"></div>
-            </div>
-
-            <div class="group relative bg-black rounded-3xl overflow-hidden shadow-2xl transition-all hover:-translate-y-2">
-                <div class="p-8">
-                    <div class="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform">
-                        <i class="fas fa-video text-3xl text-black"></i>
+                <div class="service-card glass p-10 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="bg-yellow-500/10 w-16 h-16 flex items-center justify-center rounded-xl mb-8">
+                        <i class="fas fa-microchip text-yellow-500 text-3xl"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Zayıf Akım</h4>
-                    <p class="text-gray-400">İnternet altyapısı, kamera sistemleri ve diafon kurulumları uzman ekibimizce kurulur.</p>
+                    <h4 class="text-2xl font-black mb-4 font-brand uppercase">Trafo Bakım</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed italic">Trafo yağ testleri, temizlik, revizyon ve tam yük kapasite ölçümleri.</p>
                 </div>
-                <div class="h-2 w-full bg-yellow-500"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-black text-white py-20 px-4">
-        <div class="container mx-auto max-w-4xl bg-yellow-500 rounded-[3rem] p-12 text-center text-black shadow-2xl">
-            <h3 class="text-4xl font-black mb-6">Hemen Teknik Servis Çağırın</h3>
-            <p class="text-xl font-bold mb-8">Mağduriyet yaşamayın, profesyonel destek alın.</p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <div class="bg-black text-white px-8 py-4 rounded-2xl">
-                    <p class="text-xs uppercase opacity-70">Telefon Numaramız</p>
-                    <a href="tel:+905469710929" class="text-2xl font-black">+90 546 971 09 29</a>
-                </div>
-                <div class="bg-white text-black px-8 py-4 rounded-2xl">
-                    <p class="text-xs uppercase opacity-70">E-Posta Adresi</p>
-                    <a href="mailto:mstfatoraman@gmail.com" class="text-xl font-black">mstfatoraman@gmail.com</a>
+                <div class="service-card glass p-10 rounded-2xl border-t-2 border-white">
+                    <div class="bg-white/10 w-16 h-16 flex items-center justify-center rounded-xl mb-8">
+                        <i class="fas fa-link-slash text-white text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4 font-brand uppercase">Kablo Tamiri</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed italic">Yeraltı arıza tespiti (noktasal), ek mu ve başlık işlemleri.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white py-12 text-center border-t border-gray-200">
-        <div class="flex justify-center items-center space-x-2 mb-4">
-            <div class="bg-black text-yellow-500 p-1 rounded">
-                <i class="fas fa-bolt"></i>
+    <footer id="iletisim" class="py-24 px-6 bg-black relative border-t border-white/5">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h3 class="text-5xl font-black mb-8 italic font-brand text-yellow-500 uppercase">BİZE ULAŞIN</h3>
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-6">
+                            <div class="w-12 h-12 rounded-full border border-yellow-500 flex items-center justify-center">
+                                <i class="fas fa-phone text-yellow-500"></i>
+                            </div>
+                            <a href="tel:+905469710929" class="text-3xl font-black tracking-tighter hover:text-yellow-500 transition">+90 546 971 09 29</a>
+                        </div>
+                        <div class="flex items-center space-x-6">
+                            <div class="w-12 h-12 rounded-full border border-white flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <a href="mailto:mstfatoraman@gmail.com" class="text-xl font-light text-gray-400 hover:text-white transition">mstfatoraman@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-12 rounded-[2rem] text-center">
+                    <div class="font-brand text-3xl mb-4">VoltUsta</div>
+                    <p class="text-gray-500 text-sm mb-8 italic">Enerji altyapınızı yarına hazırlıyoruz. Profesyonel çözümler için bize yazın.</p>
+                    <a href="https://wa.me/905469710929" class="inline-block w-full py-5 yellow-gradient text-black font-black rounded-xl hover:scale-[1.02] transition">
+                        WHATSAPP İLE MESAJ GÖNDER
+                    </a>
+                </div>
             </div>
-            <span class="text-xl font-black tracking-tighter italic">USTASİNYAL</span>
+            <div class="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest gap-4">
+                <p>&copy; 2026 VoltUsta. Tüm Hakları Saklıdır.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-yellow-500 transition">Gizlilik</a>
+                    <a href="#" class="hover:text-yellow-500 transition">Hizmet Şartları</a>
+                </div>
+            </div>
         </div>
-        <p class="text-gray-500 text-sm italic">Kaliteli işçilik, kesintisiz enerji.</p>
     </footer>
 
 </body>
