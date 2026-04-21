@@ -3,334 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltUsta | Modern ve Güvenilir Elektrik Çözümleri</title>
+    <title>VoltUsta | Profesyonel Enerji Çözümleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #FBBF24; /* Canlı modern sarı */
-            --bg: #0A0A0A;      /* Derin siyah */
-            --text: #F3F4F6;    /* Yumuşak beyaz */
-            --card-bg: #1A1A1A; /* Kart arka planı */
-            --border: #2A2A2A;   /* Hafif kenarlık */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        /* Header */
-        header {
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: -2px;
-            font-weight: 800;
-        }
-
-        header h1 span {
-            color: var(--primary);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #A1A1AA;
-            margin-top: 10px;
-            font-weight: 400;
-        }
-
-        /* Güvenlik Sekmesi / Akordeon (Daha Şık) */
-        .security-section {
-            background-color: #1c1901;
-            border: 1px solid #443e01;
-            border-radius: 16px;
-            margin-bottom: 60px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .accordion-header {
-            padding: 25px 30px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-            transition: background 0.3s ease;
-        }
-
-        .accordion-header:hover {
-            background: rgba(251, 191, 36, 0.05);
-        }
-
-        .accordion-content {
-            padding: 0 30px 30px 30px;
-            display: none;
-            border-top: 1px solid #443e01;
-            font-size: 1rem;
-            color: #D1D5DB;
-        }
-
-        .security-section h3 {
-            color: var(--primary);
-            font-weight: 700;
-            margin-top: 25px;
-        }
-
-        /* Hizmetler Grid (Görsel Odaklı) */
-        .section-title {
-            text-align: center;
-            color: var(--text);
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            letter-spacing: -1px;
-        }
-
-        .section-title span {
-            color: var(--primary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #000; scroll-behavior: smooth; }
+        .font-brand { font-family: 'Orbitron', sans-serif; }
+        
+        .yellow-gradient { background: linear-gradient(90deg, #FACC15 0%, #EAB308 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .hero-bg {
+            background: radial-gradient(circle at top right, #2d2600, #000);
             position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
         }
 
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
+        .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+        .service-card:hover { border-color: #FACC15; transform: translateY(-12px); box-shadow: 0 20px 40px rgba(250, 204, 21, 0.1); }
+        
+        .accordion-content { transition: max-height 0.5s ease-out; max-height: 0; overflow: hidden; }
+        .accordion-open .accordion-content { max-height: 1000px; }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(251, 191, 36, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .service-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* İkonlar İçin Placeholder */
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: #2A2A2A;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            color: var(--primary);
-            border: 1px solid var(--border);
-        }
-
-        .service-card h3 {
-            color: var(--text);
-            margin: 0;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: #A1A1AA;
-            margin-top: 10px;
-            font-weight: 400;
-        }
-
-        /* İletişim (Modern Kart) */
-        .contact-section {
-            margin-top: 100px;
-            padding: 60px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #080808 100%);
-            border-radius: 24px;
-            text-align: center;
-            border: 1px solid var(--border);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .contact-section h2 {
-            font-size: 2.5rem;
-            color: var(--text);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .contact-info {
-            font-size: 1.8rem;
-            margin-top: 30px;
-            color: var(--primary);
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .contact-sub {
-            color: #A1A1AA;
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px;
-            font-size: 0.9rem;
-            color: #52525B;
-            border-top: 1px solid var(--border);
-        }
-
-        .highlight { color: var(--primary); font-weight: bold; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #FACC15; border-radius: 10px; }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="text-white selection:bg-yellow-500 selection:text-black">
 
-    <header>
-        <h1>VOLT<span>USTA</span></h1>
-        <p>Güvenilir Enerji, Modern Çözümler</p>
+    <nav class="fixed w-full z-50 glass border-b border-yellow-500/20 px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-yellow-500 text-black w-10 h-10 flex items-center justify-center rounded-lg rotate-45">
+                    <i class="fas fa-bolt text-xl -rotate-45"></i>
+                </div>
+                <span class="font-brand text-2xl font-black tracking-tighter text-yellow-500 uppercase">Volt<span class="text-white">Usta</span></span>
+            </div>
+            <div class="hidden md:flex space-x-10 font-bold text-xs uppercase tracking-[0.2em] text-gray-400">
+                <a href="#guvenlik" class="hover:text-yellow-500 transition">Güvenlik</a>
+                <a href="#hizmetler" class="hover:text-yellow-500 transition">Hizmetler</a>
+                <a href="#iletisim" class="hover:text-yellow-500 transition">İletişim</a>
+            </div>
+            <a href="tel:+905469710929" class="yellow-gradient text-black font-black px-6 py-3 rounded-sm transform hover:scale-105 transition shadow-[0_0_20px_rgba(250,204,21,0.3)]">
+                ACİL DESTEK
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-bg min-h-[90vh] flex items-center pt-20 px-6 overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-yellow-500/10 blur-[120px] rounded-full"></div>
+        <div class="container mx-auto grid md:grid-cols-2 gap-16 items-center relative">
+            <div>
+                <h2 class="text-yellow-500 font-brand text-sm mb-6 tracking-[0.6em] uppercase italic">Profesyonel Enerji Çözümleri</h2>
+                <h1 class="text-6xl md:text-8xl font-black mb-8 leading-[0.9] font-brand uppercase">GÜCÜN <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-white to-gray-500">MİMARI.</span></h1>
+                <p class="text-gray-400 text-lg mb-12 max-w-lg leading-relaxed italic">Endüstriyel tesislerden modern konutlara, yüksek gerilimden zayıf akıma kadar enerjiyi kontrol altına alıyoruz.</p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://wa.me/905469710929" class="bg-white text-black font-black px-10 py-5 rounded-sm hover:bg-yellow-500 transition-all flex items-center group">
+                        <i class="fab fa-whatsapp mr-3 text-2xl"></i> WHATSAPP DESTEK
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="absolute -inset-10 bg-yellow-500/5 blur-3xl rounded-full animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1000" alt="Elektrik Ustası" class="relative rounded-2xl grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition duration-1000 shadow-2xl border border-white/5">
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-
-        <section class="security-section">
-            <div class="accordion-header" onclick="toggleAccordion()">
-                ⚠️ Hayati Güvenlik: Kaçak Akım Rölesi & Topraklama <span>▼</span>
-            </div>
-            <div class="accordion-content" id="securityContent">
-                <p>Evinizdeki elektrik sistemi görünmez riskler taşıyabilir. Can ve mal güvenliğiniz için bu iki sistem hayati önem taşır.</p>
-                
-                <h3>🔌 Kaçak Akım Rölesi</h3>
-                <p>Kaçakları anında algılar, elektriği keser. <span class="highlight">Elektrik çarpması ve yangın riskini önler. Hayat kurtarır.</span></p>
-
-                <h3>🌍 Topraklama Sistemi</h3>
-                <p>Tehlikeli akımı toprağa iletir. <span class="highlight">Cihazların metal kısımlarının elektriklenmesini ve çarpılmaları önler.</span></p>
-
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #333;">
-                    <p>🚨 <strong>Tam Koruma İçin:</strong> Bu iki sistem birlikte çalışmalıdır. Biz, kaçak akım rölesi montajı, topraklama ölçümü ve altyapı kurulum hizmeti sunuyoruz.</p>
+    <section id="guvenlik" class="py-20 px-6 bg-zinc-950">
+        <div class="container mx-auto max-w-4xl">
+            <div class="glass rounded-3xl overflow-hidden border-yellow-500/30" id="securityAccordion">
+                <button onclick="document.getElementById('securityAccordion').classList.toggle('accordion-open')" class="w-full p-8 flex justify-between items-center bg-yellow-500/5 hover:bg-yellow-500/10 transition">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-shield-heart text-yellow-500 text-3xl"></i>
+                        <span class="font-brand text-xl md:text-2xl text-left uppercase">⚠️ Neden Kaçak Akım Rölesi ve Topraklama Şart?</span>
+                    </div>
+                    <i class="fas fa-chevron-down text-yellow-500"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-8 space-y-8 border-t border-white/10">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <h4 class="font-brand text-yellow-500 text-lg uppercase italic underline">🔌 Kaçak Akım Rölesi</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Elektrik hattındaki kaçakları anında algılar ve milisaniyeler içinde elektriği keser. <span class="text-white font-bold italic">Elektrik çarpmasını ve yangın riskini önleyerek hayat kurtarır.</span></p>
+                            </div>
+                            <div class="space-y-4">
+                                <h4 class="font-brand text-yellow-500 text-lg uppercase italic underline">🌍 Topraklama Sistemi</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Cihazlardaki fazla elektriği güvenli bir şekilde toprağa iletir. <span class="text-white font-bold italic">Elektronik cihazlarınızın ömrünü uzatır ve dokunma kaynaklı çarpılmaları önler.</span></p>
+                            </div>
+                        </div>
+                        <div class="bg-black/50 p-6 rounded-xl border border-yellow-500/20 text-center">
+                            <p class="font-bold text-yellow-500 italic">🚨 Biri eksik olursa sistem tam koruma sağlamaz! Biz her ikisinin de ölçümünü ve montajını yapıyoruz.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="hizmetler">
-            <h2 class="section-title">Hizmet<span>lerimiz</span></h2>
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Elektrik Arıza & Onarım</h3>
-                    <p>Hızlı arıza tespiti ve güvenli çözümler.</p>
+    <section id="hizmetler" class="py-32 bg-black px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <h3 class="font-brand text-5xl mb-4 italic uppercase">Hizmetlerimiz</h3>
+                    <p class="text-gray-500 max-w-md italic font-light">Teknik hassasiyet, maksimum güvenlik ve 7/24 kesintisiz destek.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3>Alçak Gerilim Panoları</h3>
-                    <p>Bakım, kontrol ve düzenli arıza giderme.</p>
+                <div class="h-px flex-grow bg-white/10 mx-10 hidden md:block"></div>
+                <div class="text-right">
+                    <span class="text-7xl font-brand text-white/5 uppercase select-none">VoltUsta</span>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">⛓️</div>
-                    <h3>Yüksek Gerilim & Trafo</h3>
-                    <p>Profesyonel trafo bakımı ve OG sistemleri.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🧵</div>
-                    <h3>Kablo Arıza & Tamiri</h3>
-                    <p>Hasarlı kabloların profesyonel onarımı.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📹</div>
-                    <h3>Güvenlik Sistemleri</h3>
-                    <p>Kamera kurulumu ve arıza giderme.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Zayıf Akım & İnternet</h3>
-                    <p>Data hatları ve altyapı kurulumları.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔋</div>
-                    <h3>E-Şarj İstasyonları</h3>
-                    <p>Elektrikli araç şarj kurulumu (Ev/İş yeri).</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>LED Dönüşüm</h3>
-                    <p>Enerji tasarruflu modern aydınlatma.</p>
-                </div>
-
             </div>
-        </section>
 
-        <section class="contact-section" id="iletisim">
-            <h2>Bize Ulaşın</h2>
-            <p class="contact-sub">Profesyonel teknik destek ve teklif almak için her zaman buradayız.</p>
-            <div class="contact-info">
-                05XX XXX XX XX
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="text-yellow-500 text-4xl mb-6"><i class="fas fa-tools"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">Arıza & Onarım</h4>
+                    <p class="text-gray-500 text-sm italic">Ev ve tesislerdeki her türlü arızayı profesyonel ekipmanlarla hızla çözüyoruz.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-white">
+                    <div class="text-white text-4xl mb-6"><i class="fas fa-table-list"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">Pano Kontrolü</h4>
+                    <p class="text-gray-500 text-sm italic">AG panolarının bakım, termal kamera ölçümü ve düzenli revizyon işlemleri.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="text-yellow-500 text-4xl mb-6"><i class="fas fa-tower-broadcast"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">Yüksek Gerilim</h4>
+                    <p class="text-gray-500 text-sm italic">Trafo bakımı, OG hücre kurulumları ve periyodik işletme sorumluluğu.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-white">
+                    <div class="text-white text-4xl mb-6"><i class="fas fa-bolt-lightning"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">Kablo Tamiri</h4>
+                    <p class="text-gray-500 text-sm italic">Yeraltı kablo arıza tespiti, ek mu ve başlık tamiri işlemleri.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="text-yellow-500 text-4xl mb-6"><i class="fas fa-video"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">Güvenlik Sistemleri</h4>
+                    <p class="text-gray-500 text-sm italic">IP/Analog kamera kurulumu, alarm sistemleri ve teknik servis desteği.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-white">
+                    <div class="text-white text-4xl mb-6"><i class="fas fa-wifi"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">İnternet & Data</h4>
+                    <p class="text-gray-500 text-sm italic">Zayıf akım altyapısı, fiber sonlandırma ve network sistemleri.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-yellow-500">
+                    <div class="text-yellow-500 text-4xl mb-6"><i class="fas fa-charging-station"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">E-Şarj Kurulumu</h4>
+                    <p class="text-gray-500 text-sm italic">Elektrikli araçlar için bireysel veya ortak alan şarj istasyon kurulumu.</p>
+                </div>
+                <div class="service-card glass p-8 rounded-2xl border-t-2 border-white">
+                    <div class="text-white text-4xl mb-6"><i class="fas fa-lightbulb"></i></div>
+                    <h4 class="text-xl font-black mb-4 font-brand uppercase">LED Dönüşüm</h4>
+                    <p class="text-gray-500 text-sm italic">Enerji verimliliği odaklı modern aydınlatma ve otomasyon çözümleri.</p>
+                </div>
             </div>
-            <p class="contact-sub">📍 Ankara ve Çevresi Hizmet Bölgesi</p>
-        </section>
+        </div>
+    </section>
 
-    </div>
-
-    <footer>
-        <p>&copy; 2026 VoltUsta. Tüm Hakları Saklıdır.</p>
+    <footer id="iletisim" class="py-24 px-6 bg-zinc-950 relative border-t border-white/5">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h3 class="text-5xl font-black mb-12 italic font-brand text-yellow-500 uppercase">İLETİŞİM</h3>
+                    <div class="space-y-10">
+                        <div class="flex items-center space-x-6">
+                            <div class="w-14 h-14 rounded-full border border-yellow-500 flex items-center justify-center bg-yellow-500/5">
+                                <i class="fas fa-phone text-yellow-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest">7/24 Destek Hattı</p>
+                                <a href="tel:+905469710929" class="text-3xl font-black tracking-tighter hover:text-yellow-500 transition">+90 546 971 09 29</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6">
+                            <div class="w-14 h-14 rounded-full border border-white flex items-center justify-center bg-white/5">
+                                <i class="fas fa-envelope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest">E-Posta Adresi</p>
+                                <a href="mailto:mstfatoraman@gmail.com" class="text-2xl font-light text-gray-300 hover:text-white transition">mstfatoraman@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-12 rounded-[2.5rem] border-yellow-500/20 text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-500/10 blur-3xl rounded-full"></div>
+                    <div class="font-brand text-3xl mb-6 text-yellow-500">VoltUsta</div>
+                    <p class="text-gray-400 text-sm mb-10 italic">Enerji altyapınızı yarına hazırlıyoruz. <br>Hızlı fiyat teklifi ve teknik bilgi için bize ulaşın.</p>
+                    <a href="https://wa.me/905469710929" class="inline-block w-full py-5 yellow-gradient text-black font-black rounded-xl hover:scale-[1.03] transition shadow-lg">
+                        WHATSAPP İLE MESAJ GÖNDER
+                    </a>
+                </div>
+            </div>
+            <div class="mt-32 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+                <p>&copy; 2026 VoltUsta. Kesintisiz Enerji.</p>
+                <p>Designed for Excellence</p>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        function toggleAccordion() {
-            var content = document.getElementById("securityContent");
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
