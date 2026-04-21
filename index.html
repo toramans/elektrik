@@ -3,190 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoltUsta | Profesyonel Elektrik Hizmetleri</title>
+    <title>VoltUsta | Modern ve Güvenilir Elektrik Çözümleri</title>
     <style>
         :root {
-            --primary: #FFD700; /* Sarı */
-            --bg: #000000;      /* Siyah */
-            --text: #FFFFFF;    /* Beyaz */
-            --card-bg: #1a1a1a;
+            --primary: #FBBF24; /* Canlı modern sarı */
+            --bg: #0A0A0A;      /* Derin siyah */
+            --text: #F3F4F6;    /* Yumuşak beyaz */
+            --card-bg: #1A1A1A; /* Kart arka planı */
+            --border: #2A2A2A;   /* Hafif kenarlık */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-family);
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
 
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--primary);
-        }
-
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* Güvenlik Sekmesi / Akordeon */
+        /* Header */
+        header {
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: -2px;
+            font-weight: 800;
+        }
+
+        header h1 span {
+            color: var(--primary);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #A1A1AA;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Güvenlik Sekmesi / Akordeon (Daha Şık) */
         .security-section {
-            background-color: #332b00;
-            border: 1px solid var(--primary);
-            border-radius: 8px;
-            margin-bottom: 40px;
+            background-color: #1c1901;
+            border: 1px solid #443e01;
+            border-radius: 16px;
+            margin-bottom: 60px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .accordion-header {
-            padding: 20px;
+            padding: 25px 30px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 1.2rem;
             color: var(--primary);
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(251, 191, 36, 0.05);
         }
 
         .accordion-content {
-            padding: 0 20px 20px 20px;
+            padding: 0 30px 30px 30px;
             display: none;
-            border-top: 1px solid #444;
+            border-top: 1px solid #443e01;
+            font-size: 1rem;
+            color: #D1D5DB;
         }
 
-        /* Hizmetler Grid */
+        .security-section h3 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 25px;
+        }
+
+        /* Hizmetler Grid (Görsel Odaklı) */
+        .section-title {
+            text-align: center;
+            color: var(--text);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: rgba(251, 191, 36, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* İkonlar İçin Placeholder */
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #2A2A2A;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            border: 1px solid var(--border);
         }
 
         .service-card h3 {
-            color: var(--primary);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--text);
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
-        /* İletişim Formu */
+        .service-card p {
+            font-size: 0.95rem;
+            color: #A1A1AA;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* İletişim (Modern Kart) */
         .contact-section {
-            margin-top: 60px;
-            padding: 40px;
-            background: var(--card-bg);
-            border-radius: 12px;
+            margin-top: 100px;
+            padding: 60px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #080808 100%);
+            border-radius: 24px;
             text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            font-weight: 800;
+            margin-bottom: 10px;
         }
 
         .contact-info {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-top: 30px;
             color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
+        .contact-sub {
+            color: #A1A1AA;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 50px;
             font-size: 0.9rem;
-            color: #666;
-            border-top: 1px solid #222;
+            color: #52525B;
+            border-top: 1px solid var(--border);
         }
 
         .highlight { color: var(--primary); font-weight: bold; }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>VOLT<span style="color: var(--primary);">USTA</span></h1>
-        <p>Güvenilir Enerji, Profesyonel Çözümler</p>
+        <h1>VOLT<span>USTA</span></h1>
+        <p>Güvenilir Enerji, Modern Çözümler</p>
     </header>
 
     <div class="container">
 
         <section class="security-section">
             <div class="accordion-header" onclick="toggleAccordion()">
-                ⚠️ Neden Kaçak Akım Rölesi ve Topraklama Şart? <span>▼</span>
+                ⚠️ Hayati Güvenlik: Kaçak Akım Rölesi & Topraklama <span>▼</span>
             </div>
             <div class="accordion-content" id="securityContent">
-                <p>Evlerde elektrik görünmez ama çok ciddi riskler taşıyabilir. Bu yüzden kaçak akım rölesi ve topraklama sistemi hayati öneme sahiptir.</p>
+                <p>Evinizdeki elektrik sistemi görünmez riskler taşıyabilir. Can ve mal güvenliğiniz için bu iki sistem hayati önem taşır.</p>
                 
-                <h3>🔌 Kaçak Akım Rölesi Ne İşe Yarar?</h3>
-                <p>Kaçak akım rölesi, elektrik hattında oluşan kaçakları anında algılar ve elektriği keser. Bu sayede <strong>elektrik çarpması riskini önler, yangın ihtimalini azaltır ve can güvenliğini korur.</strong> <span class="highlight">Kısacası: Hayat kurtarır.</span></p>
+                <h3>🔌 Kaçak Akım Rölesi</h3>
+                <p>Kaçakları anında algılar, elektriği keser. <span class="highlight">Elektrik çarpması ve yangın riskini önler. Hayat kurtarır.</span></p>
 
-                <h3>🌍 Topraklama Neden Önemlidir?</h3>
-                <p>Topraklama, elektriğin tehlikeli kısmını güvenli şekilde toprağa iletir. Eğer topraklama yoksa cihazların metal kısımları elektriklenebilir, dokunan kişi çarpılabilir ve cihazlarınız zarar görebilir. <span class="highlight">Kısacası: Elektriği kontrol altına alır.</span></p>
+                <h3>🌍 Topraklama Sistemi</h3>
+                <p>Tehlikeli akımı toprağa iletir. <span class="highlight">Cihazların metal kısımlarının elektriklenmesini ve çarpılmaları önler.</span></p>
 
-                <div style="background: #000; padding: 15px; border-radius: 5px; margin-top: 15px;">
-                    <p>🚨 <strong>İkisi Birlikte Çalışır:</strong> Kaçak akım rölesi ve topraklama birlikte kullanıldığında maksimum güvenlik sağlar. Biri eksik olursa sistem tam koruma sağlamaz.</p>
-                    <p>✅ <strong>Biz Ne Yapıyoruz?</strong> Kaçak akım rölesi kontrol ve montajı, topraklama ölçümü ve güvenli altyapı kurulumu.</p>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #333;">
+                    <p>🚨 <strong>Tam Koruma İçin:</strong> Bu iki sistem birlikte çalışmalıdır. Biz, kaçak akım rölesi montajı, topraklama ölçümü ve altyapı kurulum hizmeti sunuyoruz.</p>
                 </div>
             </div>
         </section>
 
         <section id="hizmetler">
-            <h2 style="text-align: center; color: var(--primary); font-size: 2rem;">Hizmetlerimiz</h2>
+            <h2 class="section-title">Hizmet<span>lerimiz</span></h2>
             <div class="services-grid">
+                
                 <div class="service-card">
-                    <h3>⚡ Elektrik Arıza & Onarım</h3>
-                    <p>Ev, iş yeri ve tesislerde oluşan tüm elektrik arızalarını hızlı ve güvenli şekilde tespit edip çözüyoruz.</p>
+                    <div class="service-icon">⚡</div>
+                    <h3>Elektrik Arıza & Onarım</h3>
+                    <p>Hızlı arıza tespiti ve güvenli çözümler.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>🔌 Alçak Gerilim Pano Kontrolü</h3>
-                    <p>Elektrik panolarınızın bakım, kontrol ve arıza giderme işlemlerini düzenli ve güvenli şekilde yapıyoruz.</p>
+                    <div class="service-icon">🔌</div>
+                    <h3>Alçak Gerilim Panoları</h3>
+                    <p>Bakım, kontrol ve düzenli arıza giderme.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>⚡ Yüksek Gerilim & Trafo Bakımı</h3>
-                    <p>Trafo ve yüksek gerilim sistemlerinde bakım, kontrol ve arıza giderme hizmetleri sunuyoruz.</p>
+                    <div class="service-icon">⛓️</div>
+                    <h3>Yüksek Gerilim & Trafo</h3>
+                    <p>Profesyonel trafo bakımı ve OG sistemleri.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>🧵 Kablo Arıza & Tamiri</h3>
-                    <p>Kopuk, yanık veya hasarlı kabloların tespiti ve profesyonel onarımını gerçekleştiriyoruz.</p>
+                    <div class="service-icon">🧵</div>
+                    <h3>Kablo Arıza & Tamiri</h3>
+                    <p>Hasarlı kabloların profesyonel onarımı.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>📹 Kamera & Güvenlik Sistemleri</h3>
-                    <p>Güvenliğiniz için kamera sistemlerinin kurulumu, bakımı ve arıza giderme hizmeti veriyoruz.</p>
+                    <div class="service-icon">📹</div>
+                    <h3>Güvenlik Sistemleri</h3>
+                    <p>Kamera kurulumu ve arıza giderme.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>🌐 İnternet & Zayıf Akım Sistemleri</h3>
-                    <p>İnternet altyapısı, data hatları ve zayıf akım sistemlerinde kurulum ve arıza çözümleri sunuyoruz.</p>
+                    <div class="service-icon">🌐</div>
+                    <h3>Zayıf Akım & İnternet</h3>
+                    <p>Data hatları ve altyapı kurulumları.</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>🔋 E-Şarj (Elektrikli Araç Şarj) Kurulumu</h3>
-                    <p>Elektrikli araçlar için ev ve iş yerlerine uygun şarj istasyonu kurulumu yapıyoruz.</p>
+                    <div class="service-icon">🔋</div>
+                    <h3>E-Şarj İstasyonları</h3>
+                    <p>Elektrikli araç şarj kurulumu (Ev/İş yeri).</p>
                 </div>
+
                 <div class="service-card">
-                    <h3>💡 LED Dönüşüm & Enerji Tasarrufu</h3>
-                    <p>Eski aydınlatma sistemlerinizi LED’e çevirerek enerji tasarrufu ve uzun ömürlü kullanım sağlıyoruz.</p>
+                    <div class="service-icon">💡</div>
+                    <h3>LED Dönüşüm</h3>
+                    <p>Enerji tasarruflu modern aydınlatma.</p>
                 </div>
+
             </div>
         </section>
 
         <section class="contact-section" id="iletisim">
-            <h2 style="color: var(--primary);">İletişim</h2>
-            <p>Profesyonel destek ve teklif almak için bize ulaşın.</p>
+            <h2>Bize Ulaşın</h2>
+            <p class="contact-sub">Profesyonel teknik destek ve teklif almak için her zaman buradayız.</p>
             <div class="contact-info">
-                📞 05XX XXX XX XX <br>
-                📍 Ankara ve Çevresi Hizmet Bölgesi
+                05XX XXX XX XX
             </div>
-            <p>Hızlı usta çağırmak veya teknik soru sormak için her zaman buradayız.</p>
+            <p class="contact-sub">📍 Ankara ve Çevresi Hizmet Bölgesi</p>
         </section>
 
     </div>
